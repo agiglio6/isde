@@ -47,3 +47,14 @@ def plot_ten_digits(x, y=None):
         if y is not None:
             plt.title("Label: " + str(y[i]))
     plt.show()
+
+
+def save_ten_digits(filename, x, y=None):
+    plt.figure(figsize=(10, 5))
+    for i in range(10):
+        plt.subplot(2, 5, i + 1)
+        img = x[i, :].reshape(28, 28)
+        plt.imshow(img, cmap='gray')
+        if y is not None:
+            plt.title("Label: " + str(y[i]))
+    plt.savefig(filename + '.pdf')
